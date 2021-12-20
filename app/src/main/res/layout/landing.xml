@@ -86,7 +86,7 @@
                     android:text="@string/book_now"
                     android:textColor="@color/black"
                     android:paddingStart="5dp"
-                    android:textSize="18dp"/>
+                    android:textSize="18sp"/>
 
 
             </LinearLayout>
