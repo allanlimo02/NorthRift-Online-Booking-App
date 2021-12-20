@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_rounded"
+        android:padding="10dp"
+        android:id="@+id/relative_one"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/showmenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_24" />
+
+        <ImageView
+            android:id="@+id/nr_text"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/nr_logo_main"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user_24"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/user_icon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nr_text"
+            android:layout_centerHorizontal="true"
+            android:text="Welcome"
+            android:textAlignment="center"
+            android:textColor="#EA371F" />
+
+    </RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/username"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/quick_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Quick Menu"
+            android:textColor="#EA371F"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@+id/quick_menu"
+            android:orientation="horizontal"
+            android:id="@+id/mainLinear">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_booking"
+                    android:id="@+id/booking_q_menu"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Book Now"
+                    android:textColor="@color/black"
+                    android:paddingStart="5dp"
+                    android:textSize="18dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/slide_pop_menu"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone"
+        android:id="@+id/slide_pop"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_close"
+            android:id="@+id/slide_pop_close"/>
+
+        <TextView
+            android:id="@+id/home_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/slide_pop_close"
+            android:paddingLeft="20dp"
+            android:text=" Home"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_outline_home_white" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_below="@+id/home_txt"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/profile_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/home_txt"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:text=" Profile"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_outline_person_24" />
+        <View
+            android:layout_width="150dp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/profile_txt"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/my_bookings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_txt"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:text=" My Bookings"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_baseline_book_online_24" />
+        <View
+            android:layout_width="150dp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/my_bookings"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/available_trips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/my_bookings"
+            android:layout_marginEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:text=" Available Trips"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_baseline_directions_bus_24" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_below="@+id/available_trips"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"
+            android:paddingTop="10dp" />
+        <TextView
+            android:id="@+id/contact_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/available_trips"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:text=" Contact Us"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_baseline_call_24" />
+        <View
+            android:layout_width="150dp"
+            android:paddingTop="10dp"
+            android:layout_below="@+id/contact_us"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text=" Invite Friends"
+            android:id="@+id/share_app"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="20dp"
+            android:paddingLeft="20dp"
+            android:textFontWeight="600"
+            android:textSize="22sp"
+            app:drawableStartCompat="@drawable/ic_baseline_share_24"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allan Limo"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/relative_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-10dp"
+        android:background="@color/white"
+        android:padding="5dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#004673"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="©NorthRift Shuttle Sacco | 2021"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
