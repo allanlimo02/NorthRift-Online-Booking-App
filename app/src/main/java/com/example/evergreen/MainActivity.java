@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -14,7 +17,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.showmenu) ImageView showMenu;
     @BindView(R.id.slide_pop_close) ImageView slide_pop_close;
     @BindView(R.id.slide_pop) RelativeLayout slide_pop;
-
+    @BindView(R.id.relative_two) RelativeLayout relative_two;
+    @BindView(R.id.home_txt) TextView home_txt;
+    @BindView(R.id.profile_txt) TextView profile_txt;
+    @BindView(R.id.my_bookings) TextView my_bookings;
+    @BindView(R.id.available_trips) TextView available_trips;
+    @BindView(R.id.contact_us) TextView contact_us;
+    @BindView(R.id.share_app) TextView share_app;
+    @BindView(R.id.username) TextView username;
+    Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +34,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         showMenu.setOnClickListener(this);
         slide_pop_close.setOnClickListener(this);
+        relative_two.setOnClickListener(this);
+        home_txt.setOnClickListener(this);
+        profile_txt.setOnClickListener(this);
+        my_bookings.setOnClickListener(this);
+        available_trips.setOnClickListener(this);
+        contact_us.setOnClickListener(this);
+        share_app.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
-
         if (view==showMenu){
             slide_pop.setVisibility(View.VISIBLE);
             showMenu.setVisibility(View.GONE);
+            relative_two.setVisibility(View.VISIBLE);
 
         }
         if(view==slide_pop_close){
             slide_pop.setVisibility(View.GONE);
             showMenu.setVisibility(View.VISIBLE);
+            relative_two.setVisibility(View.GONE);
+        }
+        if(view==relative_two){
+            slide_pop.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+            relative_two.setVisibility(View.GONE);
+        }
+        if(view==home_txt){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
 
         }
+        if(view==profile_txt){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+
+        }
+        if(view==my_bookings){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+
+        }
+        if(view==available_trips){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+
+        }
+        if(view==contact_us){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+
+        }
+        if(view==share_app){
+            relative_two.setVisibility(View.GONE);
+            showMenu.setVisibility(View.VISIBLE);
+
+        }
+    }
+    private void timeCalculator(){
+        int mHour=calendar.get(Calendar.HOUR);
+        username.setText(mHour);
     }
 }

@@ -45,6 +45,18 @@
             android:textColor="#EA371F" />
 
     </RelativeLayout>
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allan Limo"
+        android:textColor="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/relative_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="-10dp"
+        android:background="@color/white"
+        android:padding="5dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,12 +112,19 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:id="@+id/relative_two"
+        android:visibility="gone">
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@drawable/slide_pop_menu"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/slide_pop"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -227,18 +246,8 @@
             android:textSize="22sp"
             app:drawableStartCompat="@drawable/ic_baseline_share_24"/>
     </RelativeLayout>
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Allan Limo"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/relative_one"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="-10dp"
-        android:background="@color/white"
-        android:padding="5dp"/>
+    </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
