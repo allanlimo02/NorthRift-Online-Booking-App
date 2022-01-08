@@ -1,12 +1,19 @@
 package com.example.evergreen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.evergreen.Fragments.Home;
 
 import java.util.Calendar;
 
@@ -25,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.contact_us) TextView contact_us;
     @BindView(R.id.share_app) TextView share_app;
     @BindView(R.id.username) TextView username;
+    @BindView(R.id.nr_text) ImageView logo;
+    @BindView(R.id.mainframe) FrameLayout frameLayout;
     Calendar calendar;
 
     @Override
@@ -32,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing);
         ButterKnife.bind(this);
+
         showMenu.setOnClickListener(this);
         slide_pop_close.setOnClickListener(this);
         relative_two.setOnClickListener(this);
@@ -41,6 +51,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         available_trips.setOnClickListener(this);
         contact_us.setOnClickListener(this);
         share_app.setOnClickListener(this);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.mainframe,new Home());
+        fragmentTransaction.commit();
 
     }
 
