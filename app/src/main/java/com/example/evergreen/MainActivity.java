@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evergreen.Fragments.ContactUs;
 import com.example.evergreen.Fragments.Home;
 
 import java.util.Calendar;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             slide_pop.setVisibility(View.GONE);
             showMenu.setVisibility(View.VISIBLE);
             relative_two.setVisibility(View.GONE);
+
         }
         if(view==relative_two){
             slide_pop.setVisibility(View.GONE);
@@ -104,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view==contact_us){
             relative_two.setVisibility(View.GONE);
             showMenu.setVisibility(View.VISIBLE);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.mainframe,new ContactUs());
+            fragmentTransaction.commit();
 
         }
         if(view==share_app){
