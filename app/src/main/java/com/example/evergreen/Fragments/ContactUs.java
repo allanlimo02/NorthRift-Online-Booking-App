@@ -1,5 +1,7 @@
 package com.example.evergreen.Fragments;
 
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -16,13 +18,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ContactUs extends Fragment {
-    @BindView(R.id.animatedMonkey)  ImageView animatedMonkey;
+    @BindView(R.id.welcome)  ImageView animatedMonkey;
 
+    private AnimationDrawable monkeyAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 

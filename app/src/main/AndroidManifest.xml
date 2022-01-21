@@ -15,20 +15,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evergreen">
         <activity
+            android:name=".Login_activity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Splashscreen"
-            android:label="Splash"
+            android:exported="true"
+            android:label="Splash"></activity>
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
 
         </activity>
-            <activity
-                android:name=".MainActivity"
-                android:exported="true">
-                <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
-            </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
