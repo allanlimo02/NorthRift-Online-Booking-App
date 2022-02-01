@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1001984649876",
+    "project_id": "northrift-814ff",
+    "storage_bucket": "northrift-814ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001984649876:android:c7a886105ec75deb352281",
+        "android_client_info": {
+          "package_name": "com.mekakisafaris.northrift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001984649876-f5vof1tmulu2l34v0kdcpa9gt8u93kve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB76K6_5t8PG7Mm5ajc1gASVqDymaQGm8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001984649876-f5vof1tmulu2l34v0kdcpa9gt8u93kve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

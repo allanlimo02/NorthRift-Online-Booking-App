@@ -15,8 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Evergreen">
         <activity
+            android:name=".CreateUser"
+            android:exported="false" />
+        <activity
             android:name=".Login_activity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,12 +29,10 @@
         <activity
             android:name=".Splashscreen"
             android:exported="true"
-            android:label="Splash"></activity>
+            android:label="Splash" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
