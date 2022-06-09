@@ -4,4 +4,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exit">Exit</string>
+    <string name="from_origin">From/ Origin</string>
+    <string-array name="destination_one">
+        <item>Naivasha</item>
+        <item>Nakuru</item>
+        <item>Eldoret</item>
+        <item>Kitale</item>
+        <item>Bungoma</item>
+        <item>Kakamega</item>
+        <item>Busia</item>
+    </string-array>
 </resources>

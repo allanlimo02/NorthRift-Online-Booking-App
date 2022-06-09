@@ -30,20 +30,25 @@ public class CreateUser extends AppCompatActivity implements View.OnClickListene
         ButterKnife.bind(this);
         signup.setOnClickListener(this);
         logintext.setOnClickListener(this);
-        mAuth=FirebaseAuth.getInstance();
+//        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
     public void onClick(View view) {
 
         if (view==signup){
+            String emailInput=email.getText().toString().trim();
             String password1=password.getText().toString().trim();
             String password2=confirmPassword.getText().toString().trim();
-
+            if (emailInput.equals("")){
+                email.setError("Cannot be blank");
+            }else
             if(password1.equals(password2)){
-
-
-
+//                createNewUser(emailInput,password1);
+                Intent intent= new Intent(CreateUser.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
             }else {
                 password.setError("");
                 confirmPassword.setError("passwords does not match");
@@ -59,7 +64,6 @@ public class CreateUser extends AppCompatActivity implements View.OnClickListene
     private void createNewUser(String mail,String pass){
         String emailInput=email.getText().toString().trim();
         String passwordInput=password.getText().toString().trim();
-
         mAuth.createUserWithEmailAndPassword(emailInput,passwordInput)
                 .addOnCompleteListener(this,task -> {
                    if (task.isSuccessful()){

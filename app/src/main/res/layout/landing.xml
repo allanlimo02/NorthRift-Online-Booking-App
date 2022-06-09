@@ -213,22 +213,40 @@
             app:drawableStartCompat="@drawable/ic_baseline_share_24"/>
     </RelativeLayout>
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swiper"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/bottomBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="#004673"
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="©NorthRift Shuttle Sacco | 2021"
             android:layout_centerHorizontal="true"
-            android:textStyle="bold"/>
+            android:text="©NorthRift Shuttle Sacco | 2022"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBlue"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:id="@+id/locationbotom"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:text="Allan"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

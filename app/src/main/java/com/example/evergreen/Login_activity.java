@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.evergreen.Fragments.UserVerification;
 import com.example.evergreen.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -58,7 +59,7 @@ public class Login_activity extends AppCompatActivity implements View.OnClickLis
 
         }
         if (v==create){
-            Intent intent= new Intent(Login_activity.this,CreateUser.class);
+            Intent intent= new Intent(Login_activity.this, CreateUser .class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
 

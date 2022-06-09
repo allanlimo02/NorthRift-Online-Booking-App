@@ -1,20 +1,28 @@
 package com.example.evergreen;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -24,9 +32,16 @@ import android.widget.Toast;
 
 import com.example.evergreen.Fragments.ContactUs;
 import com.example.evergreen.Fragments.Home;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,8 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.mainframe) FrameLayout frameLayout;
     @BindView(R.id.user_icon) ImageView user_icon;
     @BindView(R.id.signout) TextView signout;
+    @BindView(R.id.locationbotom) TextView locationbotom;
+    @BindView(R.id.swiper) RelativeLayout swiper;
+    FusedLocationProviderClient fusedLocationProviderClient;
     Calendar calendar;
     LocalTime time;
+    MainActivity mainActivity;
     NotificationManagerCompat notificationManagerCompat;
     Notification notification;
     String notificationBody="Your session has ended";
@@ -76,10 +95,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         share_app.setOnClickListener(this);
         user_icon.setOnClickListener(this);
         signout.setOnClickListener(this);
-
-
-
-
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        getPermission();
+//        swiper.setOnSwi
 
     }
 
@@ -138,7 +156,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view==contact_us){
             relative_two.setVisibility(View.GONE);
             showMenu.setVisibility(View.VISIBLE);
-            onDestroy();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.mainframe,new ContactUs());
+            fragmentTransaction.commit();
 
 
         }
@@ -214,6 +234,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             notificationManagerCompat=NotificationManagerCompat.from(this);
 
         }
+    }
+    private void getPermission(){
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            //If permision granted, do it
+            getLocation();
+
+        } else {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
+        }
+    }
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+            @Override
+            public void onComplete(@NonNull Task<Location> task) {
+                Location location=task.getResult();
+                if (location!=null){
+                    Geocoder geocoder=new Geocoder(MainActivity.this, Locale.getDefault());
+                    //Address List
+                    try {
+                        List<Address> addresses=geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+                        locationbotom.setVisibility(View.VISIBLE);
+                        locationbotom.setText(addresses.get(0).getLocality());
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+
+
+                }
+
+            }
+        });
     }
 
 }
