@@ -15,4 +15,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/nr_logo_main"/>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

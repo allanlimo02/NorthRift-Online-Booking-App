@@ -37,12 +37,7 @@ public class Booking extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getActivity(),R.array.destination_one, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner fromspinner=  getView().findViewById(R.id.fromspinner);
-        Spinner tospinner=  getView().findViewById(R.id.tospinner);
-        fromspinner.setAdapter(adapter);
-        tospinner.setAdapter(adapter);
+//    22etAdapter(adapter);
     }
 
 
